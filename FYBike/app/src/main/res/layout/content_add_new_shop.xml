@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_add_new_shop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.android.app.fybike.AddNewShopActivity"
+    tools:showIn="@layout/activity_add_new_shop">
+
+    <FrameLayout
+        android:id="@+id/layoutMap"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="200dp">
+
+        <fragment
+            android:id="@+id/mapFrag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.android.app.fybike.AddShopMapFragment" />
+
+    </FrameLayout>
+
+    <custom.view.CustomScrollView
+        android:layout_below="@id/layoutMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layoutInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:elevation="5dp"
+                android:background="@drawable/layout_only">
+
+                <EditText
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="2dp"
+                    android:layout_gravity="bottom"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Name"
+                    android:drawableLeft="@mipmap/ic_domain"
+                    android:textSize="14sp"
+                    android:background="@drawable/border" />
+
+                <EditText
+                    android:id="@+id/txtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="2dp"
+                    android:layout_gravity="bottom"
+                    android:maxLines="1"
+                    android:maxLength="11"
+                    android:inputType="number"
+                    android:hint="Phone"
+                    android:drawableLeft="@mipmap/ic_contact_phone"
+                    android:textSize="14sp"
+                    android:background="@drawable/border" />
+
+                <EditText
+                    android:id="@+id/txtPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="2dp"
+                    android:layout_gravity="bottom"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:hint="Price"
+                    android:drawableLeft="@mipmap/ic_attach_money"
+                    android:textSize="14sp"
+                    android:background="@drawable/border" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/layoutInfo"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:elevation="5dp"
+                android:background="@drawable/layout_only"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/btnTimeOpen"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="8dp"
+                        android:drawableLeft="@mipmap/ic_access_time"
+                        android:text="Open"
+                        android:padding="2dp" />
+
+                    <EditText
+                        android:id="@+id/txtTImeOpen"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginBottom="5dp"
+                        android:enabled="false"
+                        android:textSize="14sp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/btnTimeClose"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_gravity="end"
+                        android:drawableLeft="@mipmap/ic_access_time"
+                        android:text="Close"
+                        android:padding="2dp" />
+
+                    <EditText
+                        android:id="@+id/txtTimeClose"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_gravity="right"
+                        android:layout_marginBottom="5dp"
+                        android:enabled="false"
+                        android:textSize="14sp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="2dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutTime"
+                android:elevation="5dp"
+                android:background="@drawable/layout_only"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp">
+
+                <Button
+                    android:id="@+id/btnAddPhoto"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="end"
+                    android:drawableLeft="@mipmap/ic_add_a_photo"
+                    android:text="Photo"
+                    android:padding="2dp" />
+
+                <EditText
+                    android:id="@+id/txtPhotoName"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@id/btnAddPhoto"
+                    android:enabled="false"
+                    android:textSize="14sp"
+                    android:text="shop.png"
+                    android:background="@drawable/border"
+                    android:gravity="center"
+                    android:padding="2dp" />
+
+                <ImageView
+                    android:id="@+id/imgPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border"
+                    android:layout_below="@id/btnAddPhoto" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnFinishAdd"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/layoutPhoto"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="Finish"
+                android:padding="2dp" />
+        </RelativeLayout>
+    </custom.view.CustomScrollView>
+</RelativeLayout>

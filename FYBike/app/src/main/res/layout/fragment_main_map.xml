@@ -1,0 +1,31 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.app.fybike.MainMapFragment">
+
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment">
+
+        <EditText
+            android:id="@+id/txtSearch"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="11dp"
+            android:padding="2dp"
+            android:layout_gravity="top"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:inputType="text"
+            android:drawableLeft="@drawable/ic_search"
+            android:textSize="14sp"
+            android:background="@drawable/border"/>
+
+    </fragment>
+
+</FrameLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.android.app.fybike.DetailShopActivity"
+    tools:showIn="@layout/activity_detail_shop">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/layoutTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/layout_only"
+            android:elevation="5dp">
+
+            <TextView
+                android:id="@+id/closeOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:drawableLeft="@mipmap/ic_access_time"
+                android:text="OPEN"/>
+            <TextView
+                android:id="@+id/timeShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/closeOpen"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="7:00am - 9:00pm"/>
+
+            <ImageButton
+                android:id="@+id/btnCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/closeOpen"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="6dp"
+                android:src="@mipmap/ic_phone"
+                android:layout_gravity="right|center_horizontal"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutSecond"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="5"
+            android:background="@drawable/layout_only">
+
+            <LinearLayout
+                android:id="@+id/layoutInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:drawableLeft="@drawable/ic_address"
+                    android:text="33 Nguyễn Đình Chính, Quận Phú Nhuận, TP.HCM"/>
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtAddress"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@mipmap/ic_attach_money"
+                    android:text="10.000đ - 50.000đ"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignRight="@id/layoutInfo"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/ic_map"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="3"
+                android:layout_alignParentTop="true" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:textSize="14sp"
+                android:background="@drawable/border"
+                android:layout_weight="6"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
+                android:layout_margin="5dp"
+                android:layout_weight="4"
+                android:text="Comment"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Nguyen Van A write: This shop is very Good. Price is suitable."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Nguyen Thi B write: Staff is professional. Price is suitable."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Nguyen Thi C write: Bad Shop."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Nguyen Thi D write: Never back again."/>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
