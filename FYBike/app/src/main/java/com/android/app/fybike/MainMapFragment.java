@@ -1,6 +1,13 @@
 package com.android.app.fybike;
 
 
+import android.*;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +16,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -21,9 +30,15 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
+import Map.MapHandler;
+
 public class MainMapFragment extends Fragment implements OnMapReadyCallback{
 
     private SupportMapFragment m_map;
+    GoogleMap mGoogleMap;
+    public Location currentLocation;
 
     @Nullable
     @Override
@@ -48,7 +63,6 @@ public class MainMapFragment extends Fragment implements OnMapReadyCallback{
         });
         m_map = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.map);
         m_map.getMapAsync(this);
-
     }
 
     @Override
@@ -59,9 +73,30 @@ public class MainMapFragment extends Fragment implements OnMapReadyCallback{
                 .position(new LatLng(10.7956526, 106.6772461)));
         try {
             googleMap.setMyLocationEnabled(true);
+            mGoogleMap = googleMap;
+            GetShopList();
 
         }catch(SecurityException se) {
             //show something
         }
+    }
+
+    public void GetShopList()
+    {
+        LocationManager locationManager = (LocationManager)
+                    getActivity().getSystemService(getContext().LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Location location = locationManager.getLastKnownLocation(locationManager
+                            .getBestProvider(criteria, false));
+                currentLocation = location;
+
+                MapHandler mapHandler = new MapHandler(mGoogleMap, getContext());
+                mapHandler.execute(location.getLongitude(), location.getLatitude() );
+
+            }
+        }
+
     }
 }

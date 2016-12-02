@@ -83,7 +83,7 @@
                     android:drawableLeft="@drawable/ic_address"
                     android:text="33 Nguyễn Đình Chính, Quận Phú Nhuận, TP.HCM"/>
                 <TextView
-                    android:id="@+id/txtPrice"
+                    android:id="@+id/txtDetailPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txtAddress"
