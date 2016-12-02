@@ -1,5 +1,6 @@
 package com.android.app.fybike;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -11,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -22,7 +24,7 @@ public class AddNewShopActivity extends AppCompatActivity implements View.OnClic
 
     AddShopMapFragment m_map = new AddShopMapFragment();
     Button btnTimeOpen, btnTimeClose;
-    EditText txtTimeOpen, txtTimeClose;
+    EditText txtTimeOpen, txtTimeClose, txtPrice;
 
     final static int OPEN_DIALOG_ID = 0;
     final static int CLOSE_DIALOG_ID = 1;
@@ -40,9 +42,18 @@ public class AddNewShopActivity extends AppCompatActivity implements View.OnClic
         btnTimeClose = (Button) findViewById(R.id.btnTimeClose);
         txtTimeOpen = (EditText) findViewById(R.id.txtTImeOpen);
         txtTimeClose = (EditText) findViewById(R.id.txtTimeClose);
-
+        txtPrice = (EditText) findViewById(R.id.txtPrice);
         btnTimeOpen.setOnClickListener(this);
         btnTimeClose.setOnClickListener(this);
+        txtPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                    v.clearFocus();
+                }
+            }
+        });
 
     }
 
@@ -111,5 +122,10 @@ public class AddNewShopActivity extends AppCompatActivity implements View.OnClic
                 .append(minutes).append(" ").append(timeSet).toString();
 
         return result;
+    }
+
+    public void hideKeyboard(View v) {
+        InputMethodManager imm =(InputMethodManager )this.getSystemService(this.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

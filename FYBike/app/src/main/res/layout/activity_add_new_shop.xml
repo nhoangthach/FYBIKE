@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.android.app.fybike.AddNewShopActivity">
+    tools:context="com.android.app.fybike.AddNewShopActivity"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
